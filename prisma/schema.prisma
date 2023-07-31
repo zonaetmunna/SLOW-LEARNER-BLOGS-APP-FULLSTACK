@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid()) @db.VarChar(36)
+  username  String    @unique
+  email     String    @unique
+  password  String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  posts     Post[]
+  comments  Comment[]
+  likes     Like[]
+}
+
+model Post {
+  id        String    @id @default(dbgenerated()) @db.VarChar(36)
+  title     String
+  content   String
+  published Boolean   @default(false)
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  String    @db.VarChar(36)
+  comments  Comment[]
+  likes     Like[]
+  likeCount Int       @default(0)
+}
+
+model Comment {
+  id        String    @id @default(dbgenerated()) @db.VarChar(36)
+  content   String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  String    @db.VarChar(36)
+  post      Post      @relation(fields: [postId], references: [id])
+  postId    String    @db.VarChar(36)
+}
+
+model Like {
+  id        String    @id @default(dbgenerated()) @db.VarChar(36)
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  String    @db.VarChar(36)
+  post      Post      @relation(fields: [postId], references: [id])
+  postId    String    @db.VarChar(36)
+}
