@@ -12,8 +12,8 @@ export async function GET(req: Request, res: NextResponse) {
 }
 export async function POST(req: Request, res: NextResponse) {
   try {
-    const body: any = req.json();
-    const { title, content, authorId } = body;
+    const body = await req.json();
+
     const post = await createPost(body);
     return NextResponse.json({ post, message: "create post success" });
   } catch (error) {

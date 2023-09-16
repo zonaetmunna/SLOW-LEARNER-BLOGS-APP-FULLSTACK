@@ -1,16 +1,13 @@
+import { Post } from "@prisma/client";
 import prisma from "./prisma";
 
-interface Post {
-  id: string;
+export interface IPost {
   title: string;
   content: string;
-  published: boolean;
-  createdAt: Date | null; // Allow Date or null
-  updatedAt: Date | null; // Allow Date or null
   authorId: string;
 }
 
-export async function createPost(post: Post): Promise<Post> {
+export async function createPost(post: IPost): Promise<Post> {
   try {
     return await prisma.post.create({
       data: {
