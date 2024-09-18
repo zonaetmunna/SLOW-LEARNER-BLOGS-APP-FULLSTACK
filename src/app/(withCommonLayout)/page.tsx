@@ -1,6 +1,6 @@
 'use client';
 import { IPost } from '@/type';
-import { Inter } from '@next/font/google';
+import { Inter } from "next/font/google";
 import { useEffect, useState } from 'react';
 import MainBanner from '../../components/mainBanner';
 

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaBell, FaPlus, FaUser } from 'react-icons/fa';
 
-const NavbarFirst: React.FC = () => {
+const NavbarFirst = (): JSX.Element => {
 	const [searchValue, setSearchValue] = useState('');
 	const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 	const router = useRouter();
