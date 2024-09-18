@@ -8,26 +8,43 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid()) @db.VarChar(36)
-  username  String    @unique
-  email     String    @unique
-  password  String
-  createdAt DateTime? @default(now())
-  updatedAt DateTime? @updatedAt
-  posts     Post[]
-  comments  Comment[]
-  likes     Like[]
+  id                 String    @id @default(uuid()) @db.VarChar(36)
+  username           String    @unique
+  email              String    @unique
+  password           String
+  role               Role      @default(user)
+  needPasswordChange Boolean   @default(true)
+  passwordChangedAt  DateTime  @default(now())
+  isDeleted          Boolean   @default(false)
+  status             Status    @default(inProgress)
+  createdAt          DateTime? @default(now())
+  updatedAt          DateTime? @updatedAt
+  posts              Blog[]
+  comments           Comment[]
+  likes              Like[]
 }
 
-model Post {
+enum Role {
+  superAdmin
+  admin
+  user
+}
+
+enum Status {
+  inProgress
+  active
+  blocked
+}
+
+model Blog {
   id        String    @id @default(uuid()) @db.VarChar(36)
   title     String
   content   String
   published Boolean   @default(false)
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
-  author    User      @relation(fields: [authorId], references: [id])
   authorId  String    @db.VarChar(36)
+  author    User      @relation(fields: [authorId], references: [id])
   comments  Comment[]
   likes     Like[]
   likeCount Int       @default(0)
@@ -38,18 +55,18 @@ model Comment {
   content   String
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
-  author    User      @relation(fields: [authorId], references: [id])
   authorId  String    @db.VarChar(36)
-  post      Post      @relation(fields: [postId], references: [id])
-  postId    String    @db.VarChar(36)
+  author    User      @relation(fields: [authorId], references: [id])
+  blogId    String    @db.VarChar(36)
+  blog      Blog      @relation(fields: [blogId], references: [id])
 }
 
 model Like {
   id        String    @id @default(dbgenerated()) @db.VarChar(36)
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
-  author    User      @relation(fields: [authorId], references: [id])
   authorId  String    @db.VarChar(36)
-  post      Post      @relation(fields: [postId], references: [id])
-  postId    String    @db.VarChar(36)
+  author    User      @relation(fields: [authorId], references: [id])
+  blogtId   String    @db.VarChar(36)
+  blog      Blog      @relation(fields: [blogtId], references: [id])
 }

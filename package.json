@@ -1,36 +1,48 @@
 {
-  "name": "Blog-FullStack",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@next/font": "13.1.6",
-    "@prisma/client": "^5.0.0",
-    "@reduxjs/toolkit": "^1.9.2",
-    "@types/bcrypt": "^5.0.0",
-    "@types/node": "18.13.0",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "bcrypt": "^5.1.0",
-    "eslint": "8.33.0",
-    "eslint-config-next": "13.1.6",
-    "next": "^13.4.12",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-hook-form": "^7.45.0",
-    "react-icons": "^4.7.1",
-    "react-redux": "^8.0.5",
-    "typescript": "4.9.5"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "prisma": "^5.0.0",
-    "tailwindcss": "^3.2.6"
-  }
+	"name": "slow-learner",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"prisma:generate": "prisma generate",
+		"prisma:migrate:dev": "prisma migrate dev",
+		"prisma:migrate:prod": "prisma migrate deploy",
+		"prisma:migrate:reset": "prisma migrate reset",
+		"prisma:studio": "prisma studio",
+		"prisma:seed": "prisma db seed"
+	},
+	"dependencies": {
+		"@next/font": "13.1.6",
+		"@prisma/client": "^5.0.0",
+		"@reduxjs/toolkit": "^2.2.7",
+		"@types/bcrypt": "^5.0.0",
+		"@types/node": "18.13.0",
+		"@types/react": "18.0.27",
+		"@types/react-dom": "18.0.10",
+		"axios": "^1.7.7",
+		"bcrypt": "^5.1.0",
+		"eslint": "8.33.0",
+		"eslint-config-next": "^14.0.3",
+		"jsonwebtoken": "^9.0.2",
+		"jwt-decode": "^4.0.0",
+		"lucide-react": "^0.441.0",
+		"next": "^14.0.3",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-hook-form": "^7.45.0",
+		"react-icons": "^4.7.1",
+		"react-redux": "^9.1.2",
+		"sonner": "^1.5.0",
+		"typescript": "^5"
+	},
+	"devDependencies": {
+		"@types/jsonwebtoken": "^9.0.6",
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.21",
+		"prisma": "^5.0.0",
+		"tailwindcss": "^3.2.6"
+	}
 }
