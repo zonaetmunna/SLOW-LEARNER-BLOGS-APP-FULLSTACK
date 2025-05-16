@@ -60,19 +60,19 @@ const data = {
       items: [
         {
           title: "Tags",
-          url: "/dashboard/tags",
+          url: "/tags",
         },
         {
           title: "Sources",
-          url: "/dashboard/sources",
+          url: "/sources",
         },
         {
           title: "Leaderboard",
-          url: "/dashboard/leaderboard",
+          url: "/leaderboard",
         },
         {
           title: "Discussions",
-          url: "/dashboard/discussed",
+          url: "/discussed",
         },
       ],
     },
@@ -83,7 +83,7 @@ const data = {
       items: [
         {
           title: "Bookmarks",
-          url: "/dashboard/bookmarks",
+          url: "/bookmarks",
         },
         {
           title: "Explorer",
@@ -102,7 +102,7 @@ const data = {
       items: [
         {
           title: "Find Squads",
-          url: "/dashboard/squads/discover",
+          url: "/squads/discover",
         },
         {
           title: "Get Started",
@@ -145,23 +145,23 @@ const data = {
   projects: [
     {
       name: "My Feed",
-      url: "/dashboard/my-feed",
+      url: "/my-feed",
       icon: Frame,
     },
     {
       name: "Following",
-      url: "/dashboard/following",
+      url: "/following",
       icon: PieChart,
     },
     {
       name: "Explore",
-      url: "/dashboard/explore",
+      url: "/explore",
       icon: Map,
     },
 
     {
       name: "History",
-      url: "/dashboard/history",
+      url: "/history",
       icon: Star,
     },
   ],

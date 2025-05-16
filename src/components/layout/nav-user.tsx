@@ -322,13 +322,13 @@ export default function Navbar() {
             <DropdownMenuSeparator />
 
             <DropdownMenuItem
-              onClick={() => router.push("/dashboard/settings/changelog")}
+              onClick={() => router.push("/settings/changelog")}
             >
               <ClipboardList className="mr-2 h-4 w-4" />
               <span>Changelog</span>
             </DropdownMenuItem>
             <DropdownMenuItem
-              onClick={() => router.push("/dashboard/settings/advertise")}
+              onClick={() => router.push("/settings/advertise")}
             >
               <MessageSquare className="mr-2 h-4 w-4" />
               <span>Advertise</span>
